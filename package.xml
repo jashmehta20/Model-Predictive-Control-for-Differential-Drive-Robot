@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>trajectory_tracking</name>
+  <name>mpc_differential_drive</name>
   <version>0.0.0</version>
   <description>
   This ROS package contain a trajectory_tracking gazebo simulation using turtlebot3 robot

@@ -69,8 +69,15 @@ int main(int argc, char **argv)
 			k2(8,3),
 			k_final(2,3),
 			iden(3,3);
+			int qr;
+			float va;
+			// qr=3;		// 4
+			// va=0.5;
+			qr=3;		// 4
+			va=0.49;
 
-	while(t<=60 && ros::ok())
+
+	while(t<=130 && ros::ok())
 	{
 		
 		// calculate the desired trajectory coordinates and velocities
@@ -122,16 +129,16 @@ int main(int argc, char **argv)
 
 		A << Ac+iden; 	
 
-		Ar << 0.5,0,0,
-			  0,0.5,0,
-			  0,0,0.5;	
+		Ar << va,0,0,
+			  0,va,0,
+			  0,0,va;	
 
 		B << ts,0,
 			0,0,
 			0,ts;
 
-		Q << 4,4,4;	
-		R << pow(10,-3),pow(10,-3);	
+		Q << qr,qr,qr;	
+		R << pow(10,-7),pow(10,-7);	
 
 		Q_bar = Q.replicate(4,1).asDiagonal();
 		R_bar = R.replicate(4,1).asDiagonal();

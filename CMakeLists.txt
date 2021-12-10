@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(trajectory_tracking)
+project(mpc_differential_drive)
 
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
