@@ -74,11 +74,3 @@ D- for model predictive controller run
 
 ---
 
-
-
-## Author Info
-
-- Twitter - [@D_allaeddine](https://twitter.com/D_allaeddine)
-- Website - [ROS in Arabic](arabic-ros.eb2a.com)
-
-[Back To The Top](#trajectory_tracking)
