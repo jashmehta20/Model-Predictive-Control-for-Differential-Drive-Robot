@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 			// qr=3;		// 4
 			// va=0.5;
 			qr=3;		// 4
-			va=0.49;
+			va=0.5;
 
 
 	while(t<=130 && ros::ok())
