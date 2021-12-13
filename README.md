@@ -3,11 +3,11 @@
 
 ## Installation
 
-2- Clone the repository in catkin_workspace
+1- Clone the repository in catkin_workspace
 ```shell
     git clone https://github.com/jashmehta20/Model-Predictive-Control-for-Differential-Drive-Robot.git
 ```
-3- Perform catkin_make 
+2- Perform catkin_make 
 ```shell
     cd ..
     catkin_make
