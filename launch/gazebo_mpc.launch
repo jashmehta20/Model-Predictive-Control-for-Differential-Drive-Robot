@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-  <!-- <arg name="x_pos" default="-0.2"/>
-  <arg name="y_pos" default="0.2"/>
+  <!-- <arg name="x_pos" default="-0.2"/> -->
+  <!-- <arg name="y_pos" default="0.2"/>
   <arg name="YAW" default="0.785"/> -->
 
   <arg name="x_pos" default="1.1"/>

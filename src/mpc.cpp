@@ -29,6 +29,16 @@ double max_vel_robot = 0.22; // TuR_barlebot3 maximum linear velocity
 double max_angular_robot = 2.8;  // TuR_barlebot3 maximum angular velocity
 
 
+// function to get robot position and orientation from the odom topic
+void robot_odom(const nav_msgs::Odometry msg)
+{
+    tf::pointMsgToTF(msg.pose.pose.position, Odom_pos);
+    Odom_yaw = tf::getYaw(msg.pose.pose.orientation);
+	robot_pose.x = msg.pose.pose.position.x;
+	robot_pose.y = msg.pose.pose.position.y;
+
+    robot_pose.theta = Odom_yaw;   
+}
 
 int main(int argc, char **argv)
 {
@@ -71,13 +81,10 @@ int main(int argc, char **argv)
 			iden(3,3);
 			int qr;
 			float va;
-			// qr=3;		// 4
-			// va=0.5;
-			qr=3;		// 4
-			va=0.5;
+			va=0.65;
 
 
-	while(t<=130 && ros::ok())
+	while(t<=120 && ros::ok())
 	{
 		
 		// calculate the desired trajectory coordinates and velocities
@@ -93,6 +100,7 @@ int main(int argc, char **argv)
 		// u_ref << vel_desired,angular_desired;
 
 		// Lisajous path
+
 		qd.x = 1.1 + 2*sin(freq*t);
 		qd.y = 0.9 + 0.7*sin(2*freq*t);
 		xd = freq*2*cos(freq*t); 
@@ -137,24 +145,17 @@ int main(int argc, char **argv)
 			0,0,
 			0,ts;
 
-		Q << qr,qr,qr;	
+		Q << 0.5,2.5,0.1;
 		R << pow(10,-7),pow(10,-7);	
 
 		Q_bar = Q.replicate(4,1).asDiagonal();
-		R_bar = R.replicate(4,1).asDiagonal();
-
-		// G << A*B,	Z,	Z,	Z,
-		// 	 A*A*B,	A*B,	Z,	Z, 
-		// 	 A*A*A*B,	A*A*B,	A*B,	Z,
-		// 	 A*A*A*A*B,	A*A*A*B,	A*A*B,	A*B;		
-
+		R_bar = R.replicate(4,1).asDiagonal();		
 
 		G << B,	Z,	Z,	Z,
 			 A*B,	B,	Z,	Z, 
 			 A*A*B,	A*B,	B,	Z,
 			 A*A*A*B,	A*A*B,	A*B,	B;	
 
-		// F << A*A,	A*A*A,	A*A*A*A,	A*A*A*A*A;
 		F << A,	A*A,	A*A*A,	A*A*A*A;
 
 		Fr << Ar,	Ar*Ar,	Ar*Ar*Ar,	Ar*Ar*Ar*Ar;
@@ -169,9 +170,7 @@ int main(int argc, char **argv)
 		angular_robot = c(1);
 
 
-		// A saturation function of the command velocities that preserves the  curvature
-		// ref -> Tracking-error model-based predictive control for mobile robots
-		// in real time Robotics and Autonomous Systems
+		// Saturation to prevent slipping 
 		saturation_sigma = std::max((fabs(vel_robot)/max_vel_robot),std::max((fabs(angular_robot)/max_angular_robot),1.0));
 
 		if (saturation_sigma == (fabs(vel_robot)/max_vel_robot))
@@ -216,14 +215,4 @@ int main(int argc, char **argv)
     return 0;
 }
 
-// function to get robot position and orientation from the odom topic
-void robot_odom(const nav_msgs::Odometry msg)
-{
-    tf::pointMsgToTF(msg.pose.pose.position, Odom_pos);
-    Odom_yaw = tf::getYaw(msg.pose.pose.orientation);
-	robot_pose.x = msg.pose.pose.position.x;
-	robot_pose.y = msg.pose.pose.position.y;
-
-    robot_pose.theta = Odom_yaw;   
-}
 

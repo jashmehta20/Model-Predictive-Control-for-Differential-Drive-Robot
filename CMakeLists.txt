@@ -22,19 +22,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-
-add_executable(backstepping src/backstepping.cpp)
-target_link_libraries(backstepping ${catkin_LIBRARIES})
-add_dependencies(backstepping trajectory_tracking_generate_messages_cpp)
-
-add_executable(feedback src/feedback.cpp)
-target_link_libraries(feedback ${catkin_LIBRARIES})
-add_dependencies(feedback trajectory_tracking_generate_messages_cpp)
-
-add_executable(pid src/pid.cpp)
-target_link_libraries(pid ${catkin_LIBRARIES})
-add_dependencies(pid trajectory_tracking_generate_messages_cpp)
-
 add_executable(mpc src/mpc.cpp)
 target_link_libraries(mpc ${catkin_LIBRARIES})
 add_dependencies(mpc trajectory_tracking_generate_messages_cpp)

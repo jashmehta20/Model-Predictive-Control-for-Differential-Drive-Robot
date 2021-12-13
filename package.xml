@@ -3,12 +3,11 @@
   <name>mpc_differential_drive</name>
   <version>0.0.0</version>
   <description>
-  This ROS package contain a trajectory_tracking gazebo simulation using turtlebot3 robot
-  model based on three diffrent controllers (PID, Backstepping, Feedbak linearization)
+  ROS package for MPC controller for gazebo simulation
   </description>
 
-  <maintainer email="damani.alaaeddine@gmail.com"> damani alla eddine </maintainer>
-  <author email="damani.alaaeddine@gmail.com">damani alla eddine </author>
+  <maintainer email="jashmehta20@gmail.com"> Jash Mehta </maintainer>
+  <author email="jashmehta20@gmail.com">Jash Mehta</author>
 
   <license>TODO</license>
   

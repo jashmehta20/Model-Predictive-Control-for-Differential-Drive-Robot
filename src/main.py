@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # import ROS Libraries
+from typing import Counter
 import rospy
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Pose2D
@@ -20,7 +21,7 @@ err = Pose2D()
 v = Twist()
 w = Twist()
 t = 0.0
-
+ct=0
 xl = []
 yl = [] 
 xd = []
@@ -59,21 +60,20 @@ def errors_callback(msg):
 
 
 # animate functions to plot data
-def animate1(i):
-       
+def plot_traj(i):
     xd.append(float(qd.x))
     yd.append(float(qd.y))
-    ax1.plot(xd,yd, 'r',linestyle='dashed',label="desired trajectory",lw=2)  
+    ax1.plot(xd,yd, 'r',linestyle='dashed',label="reference trajectory",lw=2)  
 
     xl.append(float(robot_pose.x))
     yl.append(float(robot_pose.y))
-    ax1.plot(xl,yl, 'k',label="robot trajectory",lw=2)  
+    ax1.plot(xl,yl, 'k',label="current trajectory",lw=2)  
     
-    ax1.grid(True)
-    ax1.legend()
-    #ax1.axis("equal")
-
-def animate2(i):
+    if i==0:
+        ax1.grid(True)
+        ax1.legend()
+    
+def plot_error(i):
 
     xe.append(float(err.x))
     ye.append(float(err.y))
@@ -84,17 +84,10 @@ def animate2(i):
     ax2.plot(s ,ye,'r',label=r"$y_e$" ,lw=2)  
     ax2.plot(s ,th,'b',label=r'$\theta_e$' ,lw=2) 
 
-    vr.append(float(v))
-    wr.append(float(w))
-
-    ax3.plot(s ,vr, 'k',label=r"$v_r$" ,lw=2)  
-    ax3.plot(s ,wr, 'b',label=r"$w_r$" ,lw=2) 
-
     ax2.grid(True)
-    ax2.legend()
+    if i==0:
+        ax2.legend()
 
-    ax3.grid(True)
-    ax3.legend()
     
 if __name__ == '__main__':
 
@@ -107,21 +100,15 @@ if __name__ == '__main__':
     fig1 = plt.figure()
     fig2 = plt.figure()
     ax1 = fig1.add_subplot(111)
-    ax2 = fig2.add_subplot(211)
-    ax3 = fig2.add_subplot(212,sharex=ax2)
+    ax2 = fig2.add_subplot(111)
+    ax1.set_ylabel("Y Coordinates")
+    ax1.set_xlabel("X coordinates")
 
-    # ax1.set_xlim([-2.5,0.5])
-    # ax1.set_ylim([-1.5,1.5]) 
-    # ax2.set_xlim(xmin=0,xmax=40)
+    ax2.set_ylabel("Errors")
+    ax2.set_xlabel("Time in seconds")
 
-    ax3.set_xlabel("Time(s)")
-    ax3.set_ylabel("velocities")
-    ax2.set_ylabel("Tracking Errors")
-
-
-
-    ani1 = animation.FuncAnimation(fig1, animate1, interval=100)
-    ani2 = animation.FuncAnimation(fig2, animate2, interval=100)
+    ani1 = animation.FuncAnimation(fig1, plot_traj, interval=100)
+    ani2 = animation.FuncAnimation(fig2, plot_error, interval=100)
     plt.show()
     rospy.spin()
 
