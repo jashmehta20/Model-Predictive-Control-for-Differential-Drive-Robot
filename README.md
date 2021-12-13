@@ -1,8 +1,4 @@
-# trajectory_tracking
-
-[![Project Image](https://img.youtube.com/vi/8TWlnW2JLhw/0.jpg)](https://www.youtube.com/watch?v=8TWlnW2JLhw)
-
-> ROS based trajectory_tracking GAZEBO simulation.
+# Error Tracking Model Predictive Control for Differential Drive Mobile Robots
 
 ---
 
