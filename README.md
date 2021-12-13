@@ -1,72 +1,31 @@
 # Error Tracking Model Predictive Control for Differential Drive Mobile Robots
 
----
-
-### Table of Contents
-
-- [Description](#description)
-- [Installation](#Installation)
-- [How To Use](#how-to-use)
-- [Author Info](#author-info)
-
----
-
-## Description
-
-A simple ROS package of a trajectory_tracking GAZEBO simulation using turtlebot3 robot model based on three diffrent controllers (PID, Backstepping, Feedbak linearization, model predictive) .
-
-[Back To The Top](#trajectory_tracking)
-
----
 
 ## Installation
 
-1- Go to your catkin_ws directory
+2- Clone the repository in catkin_workspace
 ```shell
-    cd ~/catkin_ws/src
+    git clone https://github.com/jashmehta20/Model-Predictive-Control-for-Differential-Drive-Robot.git
 ```
-2- Clone the repository
-```shell
-    git clone https://github.com/alla-eddine/trajectory_tracking.git
-```
-3- install by 
+3- Perform catkin_make 
 ```shell
     cd ..
     catkin_make
 ```
----
 
-## How To Use
+## How To Run
 
 1- Go to your catkin_ws directory
 ```shell
     cd ~/catkin_ws
     catkin_make
 ```
-2- in the first terminal tap run
+2- in the first terminal
 ```shell
-    roslaunch trajectory_tracking gazebo_tb3_sim.launch
+    roslaunch mpc_differential_drive gazebo_mpc.launch
 ```
-3- in the second terminal tap run
-
-A- for backstepping controller run 
+3- in the second terminal
 ```shell
-    roslaunch trajectory_tracking backstepping.launch
+    roslaunch mpc_differential_drive mpc.launch
 ```
-B- for feedback linearization controller run 
-```shell
-    roslaunch trajectory_tracking feedback.launch
-```
-C- for pid controller run 
-```shell
-    roslaunch trajectory_tracking pid.launch
-```
-D- for model predictive controller run 
-```shell
-    roslaunch trajectory_tracking mpc.launch
-```
-
-[Back To The Top](#trajectory_tracking)
-
----
 
