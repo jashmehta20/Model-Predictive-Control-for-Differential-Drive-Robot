@@ -33,9 +33,8 @@
 
 **Oval Trajectory**
 
-![](/Assets/ezgif.com-gif-maker.gif)
-![](/Assets/ezgif.com-gif-maker-3.gif)
-![](/Assets/ezgif.com-gif-maker-4.gif)
+<img src="/Assets/ezgif.com-gif-maker.gif" width="400">    <img src="/Assets/ezgif.com-gif-maker-3.gif" width="400">
+<img src="/Assets/ezgif.com-gif-maker-4.gif" width="400">
 
 **Lissajous Trajectory**
 
