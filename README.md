@@ -31,13 +31,13 @@
 
 ## Results
 
-Oval trajectory
+**Oval Trajectory**
 
 ![](/Assets/ezgif.com-gif-maker.gif)
 ![](/Assets/ezgif.com-gif-maker-3.gif)
 ![](/Assets/ezgif.com-gif-maker-4.gif)
 
-Lissajous Trajectory
+**Lissajous Trajectory**
 
 ![](/Assets/ezgif.com-gif-maker-5.gif)
 ![](/Assets/ezgif.com-gif-maker-7.gif)
