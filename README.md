@@ -35,7 +35,7 @@ Oval trajectory
 
 ![](/Assets/ezgif.com-gif-maker.gif)
 ![](/Assets/ezgif.com-gif-maker-3.gif)
-![](/Assets/sezgif.com-gif-maker-4.gif)
+![](/Assets/ezgif.com-gif-maker-4.gif)
 
 Lissajous Trajectory
 
