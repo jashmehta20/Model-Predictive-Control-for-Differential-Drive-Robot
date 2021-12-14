@@ -33,12 +33,12 @@
 
 Oval trajectory
 
-![](ezgif.com-gif-maker.gif)
-![](ezgif.com-gif-maker-3.gif)
-![](ezgif.com-gif-maker-4.gif)
+![](/Assets/ezgif.com-gif-maker.gif)
+![](/Assets/ezgif.com-gif-maker-3.gif)
+![](/Asset/sezgif.com-gif-maker-4.gif)
 
 Lissajous Trajectory
 
-![](ezgif.com-gif-maker-5.gif)
-![](ezgif.com-gif-maker-6.gif)
-![](ezgif.com-gif-maker-7.gif)
+![](/Assets/ezgif.com-gif-maker-5.gif)
+![](/Assets/ezgif.com-gif-maker-6.gif)
+![](/Assets/ezgif.com-gif-maker-7.gif)
