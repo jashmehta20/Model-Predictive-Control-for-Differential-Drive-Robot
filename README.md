@@ -29,3 +29,9 @@
     roslaunch mpc_differential_drive mpc.launch
 ```
 
+## Results
+
+Oval trajectory
+
+
+Lissajous Trajectory
